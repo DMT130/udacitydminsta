@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { Router, Request, Response } from 'express';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+//import validUrl from 'valid-url'
+const validUrl = require('valid-url');
 
 (async () => {
 
@@ -33,14 +35,24 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   app.get("/filteredimage", async(req: Request, res: Response) => {
     const image_url = req.query.image_url.toString();
     if (!image_url) {
-      res.status(400).send("Image url required")
+      res.status(400).send("Image url required");
     }
 
-    const filtered_image = await filterImageFromURL(image_url)
+    if (validUrl.isUri(image_url)){
+      try {
+        const filtered_image = await filterImageFromURL(image_url)
 
-    res.status(200).sendFile(filtered_image, () => {
-      deleteLocalFiles([filtered_image])
-    })
+        res.status(200).sendFile(filtered_image, () => {
+          deleteLocalFiles([filtered_image])
+        })
+      } catch(err) {
+        res.status(404).send("Image not found or is not a valid image url, check and try again");
+      }
+    } 
+    else {
+      res.status(403).send("The url provided is invalid");
+    }
+
   })
 
   //! END @TODO1

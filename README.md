@@ -1,8 +1,11 @@
+# Github Address
+*https://github.com/DMT130/udacitydminsta*
 # Endpoint Link
-http://finaldesperationtimane-dev.us-east-1.elasticbeanstalk.com
+*http://finaldesperationtimane-dev.us-east-1.elasticbeanstalk.com*
 
 # Endpoint link with random test image
-http://finaldesperationtimane-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRykIYRhfI6MUkUo5boavxOaHnXTpVmImd_-Q&usqp=CAU
+*http://finaldesperationtimane-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRykIYRhfI6MUkUo5boavxOaHnXTpVmImd_-Q&usqp=CAU*
+
 
 # Udagram Image Filtering Microservice
 
